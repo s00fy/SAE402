@@ -2,6 +2,7 @@
 @import "vendors/reset.scss";
 
 // Blocs de style
+@import "blocs/header.scss";
 
 // Style global
 @import "global/font.scss";
@@ -11,7 +12,7 @@
 }
 
 html {
-  font-family: "Comfortaa";
+  font-family: "Comfortaa", sans-serif;
 }
 
 body {
@@ -25,4 +26,5 @@ img {
 
 :root {
   --mint: #4fb477;
+  --light-grey: #ABABAB; 
 }
