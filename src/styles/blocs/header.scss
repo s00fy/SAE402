@@ -1,6 +1,6 @@
 .header
 {
-    padding: 1rem 0.5rem;
+    padding: 2rem 0.5rem;
 }
 .header__list{
     display: flex;
@@ -26,14 +26,15 @@
     padding-left: 0.5rem;
 }
 .header__burger>div{
-    height: 100%;
-    width: 100%;
+    //height: 42px;
+    //width: 42px;
 }
 .header__item:first-child span{
+    display: block; 
     height: 2px;
     background: black;
     border-radius: 5px;
-    margin-bottom: 0.2rem;
+    margin-top: 0.2rem;
 }
 .header__item:first-child span:first-child{
     width: 9px;
