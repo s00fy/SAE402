@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/src/img/logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Map Test</title>
+    <link rel="stylesheet" href="src/styles/styles.scss" />
+  <body>
+    <section>
+        <form class="form">
+            <div class="form__wrapper">
+                <label for="name_list" class="form__label">Nom de la liste :</label>
+                <input type="text" class="form__input" name="name_list" placeholder="Nom">
+            </div>
+            <div class="form__wrapper">
+                <label for="name_article" class="form__label">Nom des articles</label>
+                <div class="form__article">
+                    <input type="text" class="form__input" name="name_article" placeholder="Article">
+                </div>
+            </div>
+            <div class="form__btnWrapper">
+                <button type="submit" class="form__btn">Enregistrer la liste</button>
+            </div>
+        </form>
+        <button class="form__btn form__btn--add">Ajouter un article</button>
+    </section>
+    <script src="/src/js/storage.js"></script>
+  </body>
+</html>
