@@ -1,0 +1,42 @@
+.footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: var(--mint);
+    width: 100vw;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #ffffff; 
+}
+.footer:before,
+.footer:after {
+  content: "";
+  display: block;
+  width: 5rem;
+  height: 5rem;
+  position: absolute;
+  border-radius: 50%;
+  bottom: 4.1rem;
+}  
+.footer:before{
+    left: 0;
+    box-shadow: -35px 35px 0 0 var(--mint);
+}
+.footer:after{
+    right: 0;
+    box-shadow: 35px 35px 0 0 var(--mint);
+} 
+.footer__title{
+    font-size: 1.2rem;
+}
+.footer__add{
+    height: 34px;
+    width: 34px;
+    border-radius: 17px;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
