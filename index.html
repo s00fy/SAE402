@@ -15,12 +15,18 @@
   </head>
   <body>
     <div id="map" class="map"></div>
-    <a href="/listTest.html">Test List</a>
+    <a href="/listTest.html" style="margin: 1.2rem 0; display: inline-block"
+      >ListTest List</a
+    >
+    <div>
+      <h2 style="margin-bottom: 1.2rem">Vos magasins favoris :</h2>
+      <ul class="shop__list"></ul>
+    </div>
     <script
       src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
       integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
       crossorigin=""
     ></script>
-    <script type="module" src="/main.js"></script>
+    <script src="/src/js/localisation.js"></script>
   </body>
 </html>

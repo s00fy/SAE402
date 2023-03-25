@@ -7,6 +7,8 @@
       timeout: 5000,
       maximumAge: 0,
     },
+    _shops: JSON.parse(localStorage.getItem("favShops")),
+    _map: document.querySelector("#map"),
     // initialisations
     app_init: function () {
       App.app_handlers();
@@ -20,6 +22,51 @@
         App.errorLoc,
         App._options
       );
+
+      // mise en place de la sauvagarde des magasins favoris
+      App._map.addEventListener("click", App.saveFavShop);
+
+      // App._shops.forEach((element) => {
+      //   console.log(element);
+      // });
+      App.showFavShop();
+    },
+
+    /**
+     * Affiche les magasins favoris
+     */
+    showFavShop: () => {
+      let li = "";
+      if (App._shops) {
+        App._shops.forEach((shop) => {
+          console.log(shop);
+          li += `<li class="shop__item">
+        <p>${shop.title}</p>
+        </li>`;
+        });
+      }
+      document.querySelector(".shop__list").innerHTML =
+        li || `Pas de magasins favoris !`;
+    },
+
+    /**
+     * Enregistre les magasins favoris
+     * @param {*} e
+     */
+    saveFavShop: (e) => {
+      if (e.target.classList.contains("check-box") && e.target.checked) {
+        if (!App._shops) {
+          App._shops = [];
+        }
+        let shop = {
+          title: e.target.parentElement.parentElement.firstChild.innerText,
+        };
+        App._shops.push(shop);
+
+        localStorage.setItem(`favShops`, JSON.stringify(App._shops));
+
+        App.showFavShop();
+      }
     },
 
     /**
@@ -75,7 +122,11 @@
           for (let market of markets.features) {
             let popup = L.popup({
               className: "custom-popup",
-            }).setContent(`<p >${market.properties.formatted}</p>`);
+            }).setContent(`<p>${market.properties.formatted}</p></br>
+            <div class="fav-wrapper">
+              <input type="checkbox" id="fav" name="fav" class="check-box">
+              <label for="fav">Magasin favoris ?</label>
+            </div>`);
 
             L.marker(
               [
