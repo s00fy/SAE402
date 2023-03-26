@@ -2,8 +2,7 @@
   const App = {
     // les variables/constantes
     _burger: document.querySelector(".header__burger"),
-    _close: document.querySelector(".navBar__close"),
-    _slideMenu: document.querySelector(".navBar"),
+    _hiddenField: document.querySelector(".header__burgerHidden"),
     _headerDate: document.querySelector(".header__date"),
     // initialisations
     app_init: function () {
@@ -13,7 +12,6 @@
     // les gestionnaires d'ev
     app_handlers: function () {
       App._burger.addEventListener("click", App.toggleMenu);
-      App._close.addEventListener("click", App.toggleMenu);
 
       App.showTodayDate();
     },
@@ -22,7 +20,8 @@
      * Affichage du menu
      */
     toggleMenu: () => {
-      App._slideMenu.classList.toggle("active");
+      App._burger.classList.toggle("burgerAnimate");
+      App._hiddenField.classList.toggle("header__burgerHidden-click");
     },
 
     /**

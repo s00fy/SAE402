@@ -26,10 +26,7 @@
       // mise en place de la sauvagarde des magasins favoris
       App._map.addEventListener("click", App.saveFavShop);
 
-      // App._shops.forEach((element) => {
-      //   console.log(element);
-      // });
-      App.showFavShop();
+      // App.showFavShop();
     },
 
     /**
@@ -45,8 +42,8 @@
         </li>`;
         });
       }
-      document.querySelector(".shop__list").innerHTML =
-        li || `Pas de magasins favoris !`;
+      document.querySelector(".favoriteShop__list").innerHTML =
+        li || `<p style="padding: 1rem">Pas de magasins favoris !</p>`;
     },
 
     /**
@@ -65,7 +62,7 @@
 
         localStorage.setItem(`favShops`, JSON.stringify(App._shops));
 
-        App.showFavShop();
+        // App.showFavShop();
       }
     },
 

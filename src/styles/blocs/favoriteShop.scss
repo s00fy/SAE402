@@ -1,35 +1,45 @@
-.favoriteShop {
-}
 .favoriteShop__title {
-    font-weight: 700;
-    margin: 2.5rem 1.5rem 1.5rem;
-    text-align: center;
+  font-weight: 700;
+  margin: 2.5rem 1.5rem 1.5rem;
+  text-align: center;
 }
+
 .favoriteShop__return {
-    color: var(--mint);
+  color: var(--mint);
 }
+
 .favoriteShop__list {
-    background: var(--mint);
-    margin-top: 1.7rem;
-    border-radius: 15px;
-    padding: 0.3rem 1rem 1.2rem;
-    height: 100%;
-    color: white;
+  background: var(--mint);
+  margin-top: 1.7rem;
+  border-radius: 15px;
+  padding: 0.3rem 1rem 1.2rem;
+  height: 100%;
+  color: white;
 }
+
 .favoriteShop__list > span {
-    display: block;
-    margin-top: 1.2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.5);
+  display: block;
+  margin-top: 1.2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
 }
+
 .favoriteShop__content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.3rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
+
+.favoriteShop__delete {
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
 .favoriteShop__name {
-    padding: 1rem 0.3rem;
+  padding: 1rem 0.3rem;
+  max-width: 60%;
 }
-.favoriteShop__content > svg {
+.favoriteShop__error {
+  margin-top: 0.75rem;
 }

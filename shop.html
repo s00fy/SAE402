@@ -6,6 +6,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>CartComm</title>
         <link rel="stylesheet" href="src/styles/styles.scss" />
+        <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+        crossorigin=""
+      />
         <script type="module" src="/main.js"></script>
     </head>
     <body>
@@ -169,7 +175,7 @@
         </header>
         <section class="localisation">
             <h1 class="localisation__title">Vos magasins</h1>
-            <div class="localisation__search">
+            <!-- <div class="localisation__search">
                 <input
                     type="text"
                     placeholder="Votre ville"
@@ -188,9 +194,9 @@
                         fill="#1D1D1D"
                     />
                 </svg>
-            </div>
+            </div> -->
             <div class="localisation__map">
-                <!-- include map from Théo -->
+                <div id="map" class="map"></div>
             </div>
             <a href="/favoriteShop.html" class="localisation__favorites">
                 <p>Vos magasins favoris</p>
@@ -208,5 +214,11 @@
                 </svg>
             </a>
         </section>
+        <script
+        src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+        crossorigin=""
+      ></script>
+      <script src="src/js/localisation.js"></script>
     </body>
 </html>
