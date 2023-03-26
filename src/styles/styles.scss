@@ -3,12 +3,15 @@
 
 // Blocs de style
 @import "blocs/header.scss";
+@import "blocs/burger.scss";
 @import "blocs/shoppingList.scss";
 @import "blocs/edit.scss";
 @import "blocs/autorisations.scss";
+@import "blocs/localisation.scss";
+@import "blocs/favoriteShop.scss";
 @import "blocs/footer.scss";
 @import "blocs/map.scss";
-@import "blocs/navBar.scss";
+// @import "blocs/navBar.scss";
 
 // Style global
 @import "global/font.scss";

@@ -1,15 +1,16 @@
 .header {
   padding: 2rem 0.5rem;
 }
-
 .header__list {
   display: flex;
   justify-content: space-between;
   align-items: center;
   list-style-type: none;
 }
-
 .header__burger {
+  position: fixed;
+  z-index: 200;
+  background: #fff;
   height: 42px;
   width: 42px;
   border: 0.5px solid rgba(109, 109, 109, 0.25);
@@ -18,35 +19,22 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  cursor: pointer;
+  padding-left: 0.5rem;
 }
-
-.header__burger > div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .header__burger span {
   display: block;
   height: 2px;
   background: black;
+  border-radius: 5px;
   margin-top: 0.2rem;
-  border-radius: 20px;
-  transition: all 0.3s ease-out;
+  transition: all 0.3s ease-in-out;
 }
-
 .header__burger span:first-child {
   width: 9px;
-  transform: translateX(-4.5px);
 }
-
 .header__burger span:last-child {
   width: 18px;
 }
-
 .header__date {
-  max-width: 75px;
-  text-transform: capitalize;
   color: var(--light-grey);
 }
