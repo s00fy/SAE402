@@ -1,0 +1,43 @@
+.burgerAnimate {
+    span:first-child {
+        transform-origin: bottom left;
+        transform: rotate(45deg) translateX(-2px) translateY(-8px);
+        width: 20px;
+    }
+    span:last-child {
+        width: 20px;
+        transform-origin: bottom left;
+        transform: rotate(-48deg) translateX(2.5px) translateY(6px);
+    }
+}
+.header__burgerHidden {
+    transition: left ease-out 0.3s;
+    position: fixed;
+    background: var(--mint);
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: -101vw;
+    z-index: 1;
+    text-align: end;
+    svg {
+        margin: 2.5rem;
+    }
+    ul {
+        padding: 2.5rem 0;
+        text-align: center;
+    }
+    li {
+        font-size: 1.7rem;
+        padding: 1.8rem;
+        a {
+            text-decoration: none;
+            color: white;
+        }
+    }
+}
+.header__burgerHidden-click {
+    left: 0;
+}

@@ -1,0 +1,44 @@
+.localisation {
+    text-align: center;
+}
+.localisation__title {
+    font-weight: 700;
+    margin: 2.5rem 1.5rem 1.5rem;
+    text-align: center;
+}
+.localisation__search {
+    position: relative;
+}
+.localisation__search input {
+    padding: 1rem;
+    border: 1px solid rgba(109, 109, 109, 0.25);
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    height: 2.8rem;
+    min-width: 100%;
+}
+.localisation__search > svg {
+    position: absolute;
+    bottom: 0.8rem;
+    right: 1rem;
+}
+.localisation__map {
+    /* TEMPORARY STYLE bcs map dev is not my task */
+    margin-top: 1.5rem;
+    background: grey;
+    height: 37vh;
+    width: 100%;
+}
+.localisation__favorites {
+    margin-top: 1.5rem;
+    background: var(--mint);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    padding: 1rem;
+    text-decoration: none;
+}
+.localisation__favorites svg {
+}
