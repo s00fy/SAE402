@@ -2,16 +2,13 @@
 @import "vendors/reset.scss";
 
 // Blocs de style
-<<<<<<< HEAD
-@import "blocs/map.scss";
-@import "blocs/listTest.scss";
-=======
 @import "blocs/header.scss";
 @import "blocs/shoppingList.scss";
 @import "blocs/edit.scss";
 @import "blocs/autorisations.scss";
 @import "blocs/footer.scss";
->>>>>>> design
+@import "blocs/map.scss";
+@import "blocs/navBar.scss";
 
 // Style global
 @import "global/font.scss";
@@ -20,7 +17,7 @@
   box-sizing: border-box;
 }
 
-html, 
+html,
 button,
 input::placeholder {
   font-family: "Comfortaa", sans-serif;
@@ -29,15 +26,17 @@ input::placeholder {
 body {
   width: clamp(320px, 80%, 480px);
   margin: 0 auto 5.5rem;
-  
 }
 
 img {
   max-width: 100%;
 }
 
+a {
+  text-decoration: none;
+}
+
 :root {
   --mint: #4fb477;
-  --light-grey: #ABABAB; 
+  --light-grey: #ababab;
 }
- 
