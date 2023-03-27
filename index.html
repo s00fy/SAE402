@@ -169,14 +169,16 @@
         </header>
         <section class="shoppingList">
             <h1 class="shoppingList__title">Vos listes de courses</h1>
+        <div class="shoppingList__wrapper">
             <div class="shoppingList__button">
                 <div class="shoppingList__content">
                     <div>
                         <p>Titre liste</p>
                         <span class="shoppingList__items">nb articles</span>
                     </div>
-                    <div class="shoppingList__arrow" id="arrow">
+                    <div class="shoppingList__arrow" >
                         <svg
+                            class="arrow"
                             width="11"
                             height="16"
                             viewBox="0 0 11 16"
@@ -221,6 +223,7 @@
                                 /></svg
                         ></a>
                     </div>
+                <div class="shoppingList__detailsWrapper">
                     <div class="shoppingList__details">
                         <p class="shoppingList__nameItems">test</p>
                         <p class="shoppingList__numberItems">x 1</p>
@@ -231,6 +234,9 @@
                     </div>
                 </div>
             </div>
+            </div>
+            
+        </div>
         </section>
         <footer class="footer">
             <p class="footer__title">Créer une nouvelle liste</p>
@@ -249,27 +255,6 @@
                 </svg>
             </a>
         </footer>
-        <!-- ********************* -->
-        <!--       JUST A TEST     -->
-        <!-- ********************* -->
-
-        <script type="text/javascript">
-            let items = [
-                {
-                    name: "Test",
-                    nb: "2",
-                },
-                {
-                    name: "Lorem",
-                    nb: "5",
-                },
-            ];
-            items.forEach((item) => {
-                let Name = item.name;
-                let Nb = item.nb;
-                console.log(Name);
-                console.log(Nb);
-            });
-        </script>
+        <script src="src/js/list.js"></script>
     </body>
 </html>

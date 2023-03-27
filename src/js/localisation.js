@@ -9,6 +9,7 @@
     },
     _shops: JSON.parse(localStorage.getItem("favShops")),
     _map: document.querySelector("#map"),
+
     // initialisations
     app_init: function () {
       App.app_handlers();

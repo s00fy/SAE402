@@ -1,10 +1,10 @@
 window.requestPermission = function () {
-    if (!("Notification" in window)) {
-        alert("Notification API not supported!");
-        return;
-    }
+  if (!("Notification" in window)) {
+    alert("Notification API not supported!");
+    return;
+  }
 
-    Notification.requestPermission(function (result) {
-        $status.innerText = result;
-    });
+  Notification.requestPermission(function (result) {
+    $status.innerText = result;
+  });
 };

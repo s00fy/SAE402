@@ -6,6 +6,7 @@
     _addArticle: document.querySelector(".edit__btn--add"),
     _wrapperArticle: document.querySelector(".edit__formArticle"),
     _list: JSON.parse(localStorage.getItem("list")),
+
     // initialisations
     app_init: function () {
       App.app_handlers();
@@ -22,7 +23,7 @@
      * Ajout d'un input d'ajout d'article
      */
     newArticle: () => {
-      // Limitation à 10 listes de couses
+      // Limitation à 10 articles
       let max_fields = 10;
 
       if (App._count < max_fields) {
@@ -63,7 +64,7 @@
       // Ajout dans le tableau
       App._list.push(newList);
 
-      App.clearInput;
+      App.clearInput();
 
       // Mise à jour dans le local storage
       localStorage.setItem(`list`, JSON.stringify(App._list));
@@ -73,8 +74,8 @@
      * Remise des champs de saisie à vide
      */
     clearInput: () => {
-      document.querySelector(".edit__input").forEach((el) => {
-        console.log(el);
+      document.querySelectorAll(".edit__input").forEach((el) => {
+        el.value = "";
       });
     },
   };

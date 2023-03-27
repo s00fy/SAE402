@@ -3,6 +3,7 @@
     // les variables/constantes
     _shops: JSON.parse(localStorage.getItem("favShops")),
     _list: document.querySelector(".favoriteShop__list"),
+
     // initialisations
     app_init: function () {
       App.app_handlers();
