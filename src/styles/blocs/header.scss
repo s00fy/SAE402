@@ -7,8 +7,7 @@
     align-items: center;
     list-style-type: none;
 }
-.header__item:first-child {
-    height: 42px;
+.header__item:nth-child(3) {
     width: 42px;
 }
 .header__burger {
