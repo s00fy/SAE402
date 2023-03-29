@@ -4,6 +4,7 @@
     _burger: document.querySelector(".header__burger"),
     _hiddenField: document.querySelector(".header__burgerHidden"),
     _headerDate: document.querySelector(".header__date"),
+
     // initialisations
     app_init: function () {
       App.app_handlers();

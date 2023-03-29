@@ -8,7 +8,6 @@
       maximumAge: 0,
     },
     _shops: JSON.parse(localStorage.getItem("favShops")),
-    _map: document.querySelector("#map"),
 
     // initialisations
     app_init: function () {
@@ -24,47 +23,21 @@
         App._options
       );
 
-      // mise en place de la sauvagarde des magasins favoris
-      App._map.addEventListener("click", App.saveFavShop);
-
       // App.showFavShop();
     },
 
-    /**
-     * Affiche les magasins favoris
-     */
-    showFavShop: () => {
-      let li = "";
-      if (App._shops) {
-        App._shops.forEach((shop) => {
-          console.log(shop);
-          li += `<li class="shop__item">
-        <p>${shop.title}</p>
-        </li>`;
-        });
+    saveFavShop: (market) => {
+      if (!App._shops) {
+        App._shops = {};
       }
-      document.querySelector(".favoriteShop__list").innerHTML =
-        li || `<p style="padding: 1rem">Pas de magasins favoris !</p>`;
-    },
+      const idShop = market.properties.place_id;
+      const shop = {
+        title: `${market.properties.address_line1}, ${market.properties.address_line2}`,
+      };
 
-    /**
-     * Enregistre les magasins favoris
-     * @param {*} e
-     */
-    saveFavShop: (e) => {
-      if (e.target.classList.contains("check-box") && e.target.checked) {
-        if (!App._shops) {
-          App._shops = [];
-        }
-        let shop = {
-          title: e.target.parentElement.parentElement.firstChild.innerText,
-        };
-        App._shops.push(shop);
+      App._shops[idShop] = shop;
 
-        localStorage.setItem(`favShops`, JSON.stringify(App._shops));
-
-        // App.showFavShop();
-      }
+      localStorage.setItem(`favShops`, JSON.stringify(App._shops));
     },
 
     /**
@@ -118,24 +91,14 @@
           );
           const markets = await response.json();
           for (let market of markets.features) {
-            let popup = L.popup({
-              className: "custom-popup",
-            }).setContent(`<p>${market.properties.formatted}</p></br>
-            <div class="fav-wrapper">
-              <input type="checkbox" id="fav" name="fav" class="check-box">
-              <label for="fav">Magasin favoris ?</label>
-            </div>`);
-
-            L.marker(
+            const marker = L.marker(
               [
                 `${market.geometry.coordinates[1]}`,
                 `${market.geometry.coordinates[0]}`,
               ],
               { icon: customIconMarket }
-            )
-              .addTo(map)
-              .bindPopup(popup)
-              .on("click", clickZoom);
+            ).addTo(map);
+            marker.on("click", (e) => clickZoom(e, market, marker));
           }
         } catch (error) {
           console.error(error);
@@ -156,11 +119,36 @@
       ).addTo(map);
 
       /**
-       * Centre la map sur un marqueur quand il est cliqué
+       *
        * @param {*} e
+       * @param {*} market
+       * @param {*} marker
        */
-      const clickZoom = (e) => {
+      const clickZoom = (e, market, marker) => {
         map.setView(e.target.getLatLng());
+        console.log(market, marker);
+
+        let checked = "";
+        // si dans l'objet app._shop la clé du market est présente alors ajouter check à l'input
+        if (market.properties.place_id in App._shops) {
+          checked = "checked";
+        }
+        let popup = L.popup({
+          className: "custom-popup",
+        })
+          .setContent(`<p style="font-weight:bold">${market.properties.address_line1} </br> ${market.properties.address_line2}</p></br>
+        <div class="fav-wrapper">
+          <input type="checkbox" ${checked} id="fav" name="fav">
+          <label for="fav">Magasin favoris ?</label>
+        </div>`);
+
+        marker.unbindPopup();
+        marker.bindPopup(popup);
+        marker.openPopup();
+
+        document
+          .getElementById("fav")
+          .addEventListener("change", () => App.saveFavShop(market));
       };
     },
 

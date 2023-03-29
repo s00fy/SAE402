@@ -52,7 +52,7 @@
       // Récupération des données du formulaire
       const datas = new FormData(App._form);
 
-      // Si la list n'existe pas dans le local storage, un tableau est créé
+      // Si la liste n'existe pas dans le local storage, un tableau est créé
       if (!App._list) {
         App._list = [];
       }
