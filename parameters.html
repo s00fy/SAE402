@@ -170,21 +170,22 @@
         <h1 class="autorisations__title">Paramètres</h1>
         <div class="autorisations__container">
             <div>
-                <p>Autoriser les notifications</p>
-                <button type="radio" onclick="requestPermission()" class="autorisations__toggle">
-                    <span class="span__toggle"></span>
-                </button>
+                <label for="notifs" class="">Autoriser les notifications
+                    <input type="checkbox" id="notifs" class="autorisations__toggle request_notifications" />
+                    <span class="span__toggle">
+                        <span class="span__toggle-indicator"></span>
+                    </span>
+                    
+                </label>
             </div>
             <div>
-                <p>Autoriser la géolocalisation</p>
-                <input type="radio">
+                <label for="geolocal">Autoriser la géolocalisation
+                    <input type="checkbox" id="geolocal" class="autorisations__toggle request_geolocation" />
+                    <span class="span__toggle">
+                        <span class="span__toggle-indicator"></span>
+                    </span>
+                </label>
             </div>
-            <div>
-                <p>Autoriser l'accès à l'espace de stockage</p>
-                <input type="radio">
-            </div>
-            <p>Current permission status is <b id="status">unavailable</b>.</p>
-            <p><button onclick="requestPermission()">Request permission</button></p>
         </div>    
     </section>
     <footer class="footer">

@@ -1,0 +1,20 @@
+if ("geolocation" in navigator) {
+  navigator.permissions.query({name:'geolocation'}).then(function(result) {
+    if (result.state === 'granted') {
+        this.classList.add('active');
+        this.checked = true;
+      navigator.geolocation.getCurrentPosition(function(location) {newLocation(location)});
+      console.log(location);  
+      if(notifAllow === true){
+            const notif = new Notification('Vous avez autorisé la géolocalisation !');
+        }
+    } else if (result.state !== 'granted' || result.state === 'default') {
+      console.log('ask permission');
+      console.log('Permission to access geolocation is denied');
+      this.checked = false;
+      this.classList.remove('active');
+    }
+  });
+} else {
+  console.log('Geolocation is not supported');
+}
