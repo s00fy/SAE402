@@ -3,6 +3,16 @@ const buttonGeo = document.querySelector(".request_geolocation");
 
 //allow to send notifs according to the checkbox state
 let notifStatus = true;
+const permissionToRemove = {
+  permissions: ["notification"]
+}
+
+function remove() {
+/*   console.log("removing");
+   browser.permissions.remove(permissionToRemove).then(result => {
+    console.log(result); 
+  }); */
+}
 
 if(buttonNotif){
 
@@ -33,6 +43,9 @@ buttonNotif.addEventListener("change", function () {
     }
   } else {
     notifStatus = false;
+    console.log("removing");
+    console.log(Notification.permission);
+    browser.permissions.remove(permissionToRemove).then(result =>{console.log(result)});
   }
 });
 }
