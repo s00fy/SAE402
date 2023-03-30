@@ -7,7 +7,7 @@
       timeout: 5000,
       maximumAge: 0,
     },
-    _shops: JSON.parse(localStorage.getItem("favShops")),
+    _shops: JSON.parse(localStorage.getItem("favShops")) || {},
 
     // initialisations
     app_init: function () {
@@ -27,9 +27,6 @@
     },
 
     saveFavShop: (market) => {
-      if (!App._shops) {
-        App._shops = {};
-      }
       const idShop = market.properties.place_id;
       const shop = {
         title: `${market.properties.address_line1}, ${market.properties.address_line2}`,
