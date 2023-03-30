@@ -4,6 +4,8 @@ const buttonGeo = document.querySelector(".request_geolocation");
 //allow to send notifs according to the checkbox state
 let notifStatus = true;
 
+if(buttonNotif){
+
 buttonNotif.addEventListener("change", function () {
   //if Notification not supported, alert user
   if (!("Notification" in window)) {
@@ -33,8 +35,10 @@ buttonNotif.addEventListener("change", function () {
     notifStatus = false;
   }
 });
+}
 
 //geolocalisation
+if(buttonGeo){
 buttonGeo.addEventListener("change", function (e) {
   console.log(notifStatus);
   function newLocation(location) {
@@ -89,3 +93,4 @@ buttonGeo.addEventListener("change", function (e) {
     }
   }
 });
+}
