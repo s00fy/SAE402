@@ -13,14 +13,37 @@
     justify-content: space-between;
     margin: 1.5rem 0;
 }
-.autorisations__container p {
+.autorisations__container label {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 .autorisations__toggle {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+
+    &:checked + .span__toggle {
+        //border: 1px solid transparent;
+        background: var(--mint);
+        box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);
+        .span__toggle-indicator{
+            transform: translateX(15px);
+            transition: 0.3s ease;
+        }
+    }
+}
+.span__toggle {
     width: 30px;
     height: 15px;
     position: relative;
     padding: 2px;
     display: flex;
+    margin-left:0;
     transition: 0.3s ease;
     justify-content: start;
     align-items: center;
@@ -31,7 +54,7 @@
     border-radius: 10px;
 }
 
-.autorisations__toggle span {
+.span__toggle-indicator {
     height: 11px;
     width: 11px;
     border-radius: 6px;
@@ -39,13 +62,13 @@
     transition: 0.3s ease;
     box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);
 }
-
-body.dark-mode .autorisations__toggle span {
+/* 
+.active .span__toggle-indicator {
     left: 20px;
     transition: 0.3s ease;
 }
 
-.autorisations__button .autorisations__toggle {
+.active .span__toggle {
     background: var(--mint);
     width: 40px;
-}
+} */

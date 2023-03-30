@@ -8,6 +8,9 @@
   align-items: center;
   list-style-type: none;
 }
+.header__item:nth-child(3) {
+  width: 42px;
+}
 
 .header__burger {
   position: fixed;
