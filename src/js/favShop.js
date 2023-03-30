@@ -24,12 +24,12 @@
     showFavShop: () => {
       let li = "";
       if (App._shops) {
-        App._shops.forEach((shop, id) => {
+        for (const market in App._shops) {
           li += `<li class="favoriteShop__content">
-          <p class="favoriteShop__name">${shop.title}</p>
+          <p class="favoriteShop__name">${App._shops[market].title}</p>
           <span class="favoriteShop__delete">
           <svg 
-          id="${id}"
+          id="${market}"
           class="delete"
           width="19"
           height="21"
@@ -44,8 +44,9 @@
         </svg>
         </span>
           </li>`;
-        });
+        }
       }
+
       document.querySelector(".favoriteShop__list").innerHTML =
         li || `<p class="favoriteShop__error">Pas de magasins favoris !<p>`;
     },
@@ -56,7 +57,8 @@
      */
     deleteFavShop: (e) => {
       if (e.target.classList.contains("delete")) {
-        App._shops.splice(e.target.id, 1);
+        const id = e.target.id;
+        delete App._shops[id];
         localStorage.setItem("favShops", JSON.stringify(App._shops));
         App.showFavShop();
       }
