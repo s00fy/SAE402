@@ -7,7 +7,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        newList: resolve(__dirname, './newList/new.html'),
+        newList: resolve(__dirname, './storage/new.html'),
       },
     },
   },
