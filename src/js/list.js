@@ -74,7 +74,7 @@
                               fill="#FAFAFA"
                           /></svg>
                     </a>
-                    <a href="/edit.html">
+                    <a href="/edit.html?id=${id}">
                     <svg
                           class="shoppingList__edit"
                           width="20"
