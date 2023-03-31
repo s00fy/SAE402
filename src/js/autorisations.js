@@ -83,6 +83,9 @@
                     const notif = new Notification(
                       "Vous avez autorisé la géolocalisation !"
                     );
+                    navigator.geolocation.getCurrentPosition(function (location) {
+                      newLocation(location);
+                    });
                   }
                 } else if (permissionStatus.state === "denied") {
                   App._buttonGeo.checked = false;
@@ -102,6 +105,11 @@
               .then((result) => {
                 if (result === "granted") {
                   App._buttonGeo.checked = true;
+                  if(newLocation){
+                    navigator.geolocation.getCurrentPosition(function (location) {
+                      newLocation(location);
+                    });
+                  }
                 } else if (result === "denied") {
                   App._buttonGeo.checked = false;
                 }
