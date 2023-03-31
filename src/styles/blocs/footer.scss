@@ -9,7 +9,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #ffffff;
 }
 
 .footer:before,
@@ -34,6 +33,7 @@
 }
 
 .footer__title {
+  color: #ffffff;
   font-size: 1.2rem;
 }
 
@@ -41,7 +41,6 @@
   width: 100%;
   display: flex;
   align-items: center;
-  color: #fff;
 }
 
 .footer__icon {
@@ -61,7 +60,6 @@
   position: fixed;
   bottom: 2%;
   left: 0;
-  color: #ffffff;
   z-index: 100;
   margin: 0 auto;
   width: 100%;
