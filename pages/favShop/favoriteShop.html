@@ -77,22 +77,22 @@
                         </svg>
                         <ul>
                             <li>
-                                <a href="/index.html">
+                                <a href="../../index.html">
                                     Mes listes
                                 </a>
                             </li>
                             <li>
-                                <a href="/shop.html">
+                                <a href="../shop/shop.html">
                                     Les magasins
                                 </a>
                             </li>
                             <li>
-                                <a href="storage/new.html">
+                                <a href="../storage/new.html">
                                     Nouvelle liste
                                 </a>
                             </li>
                             <li>
-                                <a href="/parameters.html">
+                                <a href="../paramaters/parameters.html">
                                     Paramètres
                                 </a>
                             </li>
@@ -166,36 +166,14 @@
                 </ul>
             </nav>
         </header>
-        <section class="edit">
-            <h1 class="edit__title">Modifier la liste</h1>
-            <a class="edit__return" href="/index.html"> ← Retour </a>
-
-            <form action="" method="post" class="edit__form">
-                <div class="edit__formElement">
-                    <label for="title">Nom de la liste : </label>
-                    <input class="edit__input" placeholder="Nom" type="text" name="list_name" id="list_name" required>
-                </div>
-                <div class="edit__formElement">
-                    <label for="list_item">Nom des articles :</label>
-                    <div class="edit__formArticle">
-                    
-                </div>
-                </div>
-                <button type="submit" class="footer__btn">
-                    <div class="footer__add">
-                        <p class="footer__title">Enregistrer la liste</p>
-                        <span class="footer__icon">
-                            <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M19.2891 3.8933L9.29115 13.8913C8.90123 14.2812 8.27136 14.2812 7.88144 13.8913L5.05202 11.0618C4.6621 10.6719 4.6621 10.042 5.05202 9.65212C5.44194 9.2622 6.07181 9.2622 6.46173 9.65212L8.5813 11.7717L17.8694 2.48359C18.2593 2.09367 18.8892 2.09367 19.2791 2.48359C19.679 2.87351 19.679 3.50338 19.2891 3.8933ZM10.001 18.0004C5.29197 18.0004 1.52274 13.9112 2.05263 9.10223C2.44255 5.58295 5.17199 2.69354 8.66128 2.11366C10.4709 1.81372 12.1906 2.13366 13.6503 2.8935C14.0402 3.09346 14.5101 3.02348 14.82 2.71354C15.2999 2.23364 15.1799 1.4238 14.5801 1.11387C13.1104 0.364021 11.4507 -0.045895 9.68107 0.00409472C4.54212 0.164062 0.272997 4.34321 0.0130498 9.47216C-0.276891 15.241 4.30217 20 10.001 20C11.2008 20 12.3405 19.79 13.4103 19.4001C14.0902 19.1502 14.2801 18.2704 13.7602 17.7505C13.4903 17.4805 13.0804 17.3805 12.7204 17.5205C11.8706 17.8304 10.9508 18.0004 10.001 18.0004ZM16.9996 13.0014H15C14.4501 13.0014 14.0002 13.4513 14.0002 14.0012C14.0002 14.5511 14.4501 15.001 15 15.001H16.9996V17.0006C16.9996 17.5505 17.4495 18.0004 17.9994 18.0004C18.5493 18.0004 18.9992 17.5505 18.9992 17.0006V15.001H20.9988C21.5486 15.001 21.9985 14.5511 21.9985 14.0012C21.9985 13.4513 21.5486 13.0014 20.9988 13.0014H18.9992V11.0018C18.9992 10.452 18.5493 10.002 17.9994 10.002C17.4495 10.002 16.9996 10.452 16.9996 11.0018V13.0014Z" fill="#4FB477"/>
-                            </svg>
-                        </span>                    
-                    </div>
-                </button>
-    
-            </form>
+        <section class="favoriteShop">
+            <h1 class="favoriteShop__title">Vos magasins favoris</h1>
+            <a class="favoriteShop__return" href="/shop.html"> ← Retour </a>
+            <ul class="favoriteShop__list">
+                <span></span>   
+            </ul>
         </section>
-        <footer class="footer">
-        </footer>
-        <script src="src/js/edit.js"></script>
+        <script type="module" src="../../main.js"></script>
+        <script type="module" src="../../src/js/favShop.js"></script>
     </body>
 </html>
