@@ -1,0 +1,19 @@
+{
+  "name": "Cartcomm, l'application de courses partagées",
+  "short_name": "Cartcomm",
+  "lang": "fr",
+  "description": "Partagez vos listes de courses à vos amis et familles !",
+  "theme_color": "#4fb477",
+  "background_color": "#4fb477",
+  "icons": [
+    {
+      "src": "src/img/logo-white.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    }
+  ],
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/index.html"
+}

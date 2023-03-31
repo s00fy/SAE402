@@ -127,7 +127,6 @@
 
         let checked = "";
         // si dans l'objet app._shop la clé du market est présente alors ajouter check à l'input
-
         if (market.properties.place_id in App._shops) {
           checked = "checked";
         }
