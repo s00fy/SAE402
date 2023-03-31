@@ -68,6 +68,9 @@
 
       // Mise à jour dans le local storage
       localStorage.setItem(`list`, JSON.stringify(App._list));
+      
+      // Redirection vers l'index
+      window.location.href = `${window.location.protocol}//${window.location.host}`;
     },
 
     /**
