@@ -13,7 +13,7 @@ export default defineConfig({
         favShop: resolve(__dirname, "./pages/favShop/favoriteShop.html"),
         parameters: resolve(__dirname, "./pages/parameters/parameters.html"),
         shop: resolve(__dirname, "./pages/shop/shop.html"),
-        shop: resolve(__dirname, "./pages/fallback/fallback.html"),
+        fallback: resolve(__dirname, "./pages/fallback/fallback.html"),
         sw: resolve(__dirname, "sw.js"),
       },
     },
