@@ -1,59 +1,82 @@
-// Service Worker
+// Choose a cache name
+const staticCacheName = "site-static-v2";
+const dynamicCacheName = "site-dynamic-v1";
 
-// Nom du cache
-const CACHE_NAME = "my-pwa-cache";
-
-// Fichiers à mettre en cache
-const CACHE_FILES = [
+// List the files to precache
+const assets = [
   "/",
   "/index.html",
-  "/styles.css",
-  "/app.js",
-  "/images/logo.png",
+  "/main.js",
+  "/src/js/autorisations.js",
+  "/src/js/edit.js",
+  "/src/js/favShop.js",
+  "/src/js/list.js",
+  "/src/js/localisation.js",
+  "/src/js/storage.js",
+  "/src/fonts/Comfortaa.woff",
+  "/src/fonts/Comfortaa.woff2",
+  "/pages/fallback/fallback.html",
+  "/pages/edit/edit.html",
 ];
 
-// Installation du Service Worker
-self.addEventListener("install", (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(CACHE_FILES);
+// install event
+self.addEventListener("install", (evt) => {
+  console.log("service worker installed");
+  evt.waitUntil(
+    caches.open(staticCacheName).then((cache) => {
+      console.log("caching shell assets");
+      cache.addAll(assets);
     })
   );
 });
 
-// Activation du Service Worker
-self.addEventListener("activate", (event) => {
-  event.waitUntil(
-    caches.keys().then((keyList) => {
+// activate event
+self.addEventListener("activate", (evt) => {
+  console.log("service worker activated");
+  evt.waitUntil(
+    caches.keys().then((keys) => {
+      //console.log(keys);
       return Promise.all(
-        keyList.map((key) => {
-          if (key !== CACHE_NAME) {
-            return caches.delete(key);
-          }
-        })
+        keys
+          .filter((key) => key !== staticCacheName)
+          .map((key) => caches.delete(key))
       );
     })
   );
 });
 
-// Interception des requêtes fetch
-self.addEventListener("fetch", (event) => {
-  event.respondWith(
-    caches.match(event.request).then((response) => {
-      if (response) {
-        return response;
-      } else {
-        return fetch(event.request)
-          .then((response) => {
-            caches.open(CACHE_NAME).then((cache) => {
-              cache.put(event.request, response.clone());
-            });
-            return response;
-          })
-          .catch(() => {
-            return caches.match("/offline.html");
-          });
-      }
-    })
+// fetch event
+self.addEventListener("fetch", (evt) => {
+  // check if request is made by chrome extensions or web page
+  // if request is made for web page url must contains http.
+  if (!(evt.request.url.indexOf("http") === 0)) return; // skip the request. if request is not made with http protocol
+
+  evt.respondWith(
+    caches
+      .match(evt.request)
+      .then(
+        (cacheRes) =>
+          cacheRes ||
+          fetch(evt.request).then((fetchRes) =>
+            caches.open(dynamicCacheName).then((cache) => {
+              cache.put(evt.request.url, fetchRes.clone());
+              // check cached items size
+              limitCacheSize(dynamicCacheName, 75);
+              return fetchRes;
+            })
+          )
+      )
+      .catch(() => caches.match("/fallback.html"))
   );
 });
+
+// cache size limit function
+const limitCacheSize = (name, size) => {
+  caches.open(name).then((cache) => {
+    cache.keys().then((keys) => {
+      if (keys.length > size) {
+        cache.delete(keys[0]).then(limitCacheSize(name, size));
+      }
+    });
+  });
+};
