@@ -20,7 +20,7 @@ export default defineConfig({
                 ),
                 shop: resolve(__dirname, "./pages/shop/shop.html"),
                 fallback: resolve(__dirname, "./pages/fallback/fallback.html"),
-                sw: resolve(__dirname, "/public/sw.js"),
+                sw: resolve(__dirname, "./public/sw.js"),
             },
         },
     },
