@@ -15,6 +15,7 @@ export default defineConfig({
         parameters: resolve(__dirname, "./pages/parameters/parameters.html"),
         shop: resolve(__dirname, "./pages/shop/shop.html"),
         fallback: resolve(__dirname, "./pages/fallback/fallback.html"),
+        manifest: resolve(__dirname, "manifest.json"),
       },
     },
   },
