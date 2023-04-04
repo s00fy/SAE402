@@ -4,6 +4,7 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
   build: {
+    publicDir: "public",
     manifest: true,
     rollupOptions: {
       input: {
