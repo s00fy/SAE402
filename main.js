@@ -1,2 +1,2 @@
-import "../src/js/header";
-import "../src/js/offline.js";
+import "./src/js/header";
+import "./src/js/offline.js";
