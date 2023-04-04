@@ -7,7 +7,7 @@
   "background_color": "#4fb477",
   "icons": [
     {
-      "src": "src/img/logo-white-pwa.svg",
+      "src": "public/img/logo-white-pwa.svg",
       "sizes": "192x192",
       "type": "image/svg+xml"
     }
