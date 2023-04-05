@@ -163,10 +163,10 @@
         const autocompleteInput = new autocomplete.GeocoderAutocomplete(
             document.getElementById("autocomplete"),
             'd548c5ed24604be6a9dd0d989631f783',
-            {placeholder: "Votre adresse"});
+            {'placeholder': 'Indiquer votre adresse ici'});
 
         autocompleteInput.on('select', (location) => {
-            autocomplete.open(location);
+            autocompleteInput.open(location);
         });
 
         autocompleteInput.on('suggestions', (suggestions) => {
