@@ -91,6 +91,7 @@
           latitude: location.properties.lat,
           longitude: location.properties.lon,
         };
+        map.setView([`${crd.latitude}`, `${crd.longitude}`], 13);
         L.marker([`${crd.latitude}`, `${crd.longitude}`], {
           icon: customIconCurrentLoc,
         })
