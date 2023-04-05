@@ -7,6 +7,7 @@
       timeout: 5000,
       maximumAge: 0,
     },
+    _searchLoc: document.querySelector(".localisation__search input"),
     _shops: JSON.parse(localStorage.getItem("favShops")) || {},
 
     // initialisations
