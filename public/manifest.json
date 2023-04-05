@@ -7,11 +7,7 @@
   "background_color": "#4fb477",
   "icons": [
     {
-<<<<<<< HEAD:manifest.json
       "src": "public/img/logo-white-pwa.svg",
-=======
-      "src": "img/logo-white-pwa.svg",
->>>>>>> parent of ece9748 (change in vite.config.js):public/manifest.json
       "sizes": "192x192",
       "type": "image/svg+xml"
     }
