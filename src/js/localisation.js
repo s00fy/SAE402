@@ -83,6 +83,9 @@
         .bindPopup(popup)
         .openPopup();
 
+      /**
+       * Affiche les lieux dans l'autocomplete
+       */
       App._autocompleteInput.on("select", (location) => {
         crd = {
           latitude: location.properties.lat,
@@ -100,6 +103,8 @@
 
       /**
        * Requette vers l'api Geoapify pour récupérer les supermarchés autour de notre position
+       * @param {*} lon
+       * @param {*} lat
        */
       const getMarket = async (lon, lat) => {
         try {
