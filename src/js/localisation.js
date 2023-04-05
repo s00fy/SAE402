@@ -7,7 +7,11 @@
       timeout: 5000,
       maximumAge: 0,
     },
-    _searchLoc: document.querySelector(".localisation__search input"),
+    _autocompleteInput: new autocomplete.GeocoderAutocomplete(
+      document.getElementById("autocomplete"),
+      "dd194d0e2b044323ba253abc56423fc9",
+      { placeholder: "Indiquer votre adresse ici" }
+    ),
     _shops: JSON.parse(localStorage.getItem("favShops")) || {},
 
     // initialisations
@@ -24,7 +28,7 @@
         App._options
       );
 
-      // App.showFavShop();
+      App._autocompleteInput.on("suggestions", (suggestions) => {});
     },
 
     saveFavShop: (market) => {
@@ -79,13 +83,28 @@
         .bindPopup(popup)
         .openPopup();
 
+      App._autocompleteInput.on("select", (location) => {
+        crd = {
+          latitude: location.properties.lat,
+          longitude: location.properties.lon,
+        };
+        L.marker([`${crd.latitude}`, `${crd.longitude}`], {
+          icon: customIconCurrentLoc,
+        })
+          .addTo(map)
+          .bindPopup(popup)
+          .openPopup();
+
+        getMarket(crd.longitude, crd.latitude);
+      });
+
       /**
        * Requette vers l'api Geoapify pour récupérer les supermarchés autour de notre position
        */
-      const getMarket = async () => {
+      const getMarket = async (lon, lat) => {
         try {
           const response = await fetch(
-            `https://api.geoapify.com/v2/places?categories=commercial.supermarket&filter=circle:${crd.longitude},${crd.latitude},5000&apiKey=${App._API_KEY}`
+            `https://api.geoapify.com/v2/places?categories=commercial.supermarket&filter=circle:${lon},${lat},5000&apiKey=${App._API_KEY}`
           );
           const markets = await response.json();
           for (let market of markets.features) {
@@ -103,8 +122,6 @@
         }
       };
 
-      getMarket();
-
       // mise en place du fond de carte
       L.tileLayer(
         `https://maps.geoapify.com/v1/tile/klokantech-basic/{z}/{x}/{y}.png?apiKey=${App._API_KEY}`,
@@ -115,6 +132,8 @@
           maxZoom: 19,
         }
       ).addTo(map);
+
+      getMarket(crd.longitude, crd.latitude);
 
       /**
        *

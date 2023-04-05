@@ -28,7 +28,7 @@
 }
 
 .localisation__map {
-  margin-top: 2rem;
+  margin-top: 6rem;
   height: 50vh;
   width: 100%;
 }
@@ -104,5 +104,8 @@ input[type="checkbox"]:checked + label:before {
 }
 
 .autocomplete-container {
+  margin-bottom: 6rem;
   position: absolute;
+  width: 100%;
+  z-index: 2;
 }
