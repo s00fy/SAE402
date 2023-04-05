@@ -92,12 +92,12 @@
           longitude: location.properties.lon,
         };
         map.setView([`${crd.latitude}`, `${crd.longitude}`], 13);
-        L.marker([`${crd.latitude}`, `${crd.longitude}`], {
+
+        let market = L.marker([`${crd.latitude}`, `${crd.longitude}`], {
           icon: customIconCurrentLoc,
-        })
-          .addTo(map)
-          .bindPopup(popup)
-          .openPopup();
+        });
+        market.unbindPopup();
+        market.addTo(map).bindPopup(popup).openPopup();
 
         getMarket(crd.longitude, crd.latitude);
       });
