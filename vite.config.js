@@ -14,6 +14,11 @@ export default defineConfig({
         shop: resolve(__dirname, "./pages/shop/shop.html"),
         fallback: resolve(__dirname, "./pages/fallback/fallback.html"),
       },
+      output: {
+        entryFileNames: `assets/[name].js`,
+        chunkFileNames: `assets/[name].js`,
+        assetFileNames: `assets/[name].[ext]`,
+      },
     },
   },
 });
