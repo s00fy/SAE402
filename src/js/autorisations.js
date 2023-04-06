@@ -43,16 +43,14 @@
       if (e.target.checked) {
         App._notifStatus = true;
         if (Notification.permission === "granted") {
-          const notification = new Notification("Notifications autorisées");
+          new Notification("Notifications autorisées");
         } else if (
           Notification.permission !== "granted" ||
           Notification.permission === "default"
         ) {
           Notification.requestPermission((result) => {
             if (result === "granted") {
-              const notif = new Notification(
-                "Vous avez autorisé les notifications !"
-              );
+              new Notification("Vous avez autorisé les notifications !");
             } else {
               e.target.checked = false;
             }
