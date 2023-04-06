@@ -21,6 +21,9 @@
 
       // suppression d'une liste
       App._wrapperList.addEventListener("click", App.deleteList);
+
+      // copie d'un liste
+      App._wrapperList.addEventListener("click", App.copyList);
     },
 
     /**
@@ -70,6 +73,7 @@
                           xmlns="http://www.w3.org/2000/svg"
                       >
                       <path
+                              class="delete"
                               d="M3.8935 20.2398C3.27821 20.2398 2.75167 20.028 2.31388 19.6043C1.87534 19.1799 1.65607 18.67 1.65607 18.0745V4.00038H0.537359V1.83513H6.13093V0.752502H12.8432V1.83513H18.4368V4.00038H17.3181V18.0745C17.3181 18.67 17.0992 19.1799 16.6614 19.6043C16.2229 20.028 15.6959 20.2398 15.0806 20.2398H3.8935ZM6.13093 15.9093H8.36836V6.16564H6.13093V15.9093ZM10.6058 15.9093H12.8432V6.16564H10.6058V15.9093Z"
                               fill="#FAFAFA"
                           /></svg>
@@ -88,6 +92,22 @@
                               fill="#FAFAFA"
                               /></svg
                   ></a>
+                  <a href="#">
+                  <svg  
+                  class="shoppingList__copy copy"
+                  data-copy="${id}"
+                  width="20" 
+                  height="21" 
+                  viewBox="0 0 34 34" 
+                  fill="none" 
+                  xmlns="http://www.w3.org/2000/svg">
+
+                  <path
+                  data-copy="${id}"
+                  class="copy"
+                  d="M12.75 25.5C11.9708 25.5 11.3036 25.2223 10.7483 24.667C10.1929 24.1116 9.91572 23.4449 9.91667 22.6666V5.66665C9.91667 4.88748 10.1943 4.22023 10.7497 3.6649C11.305 3.10957 11.9718 2.83237 12.75 2.83332H25.5C26.2792 2.83332 26.9464 3.11098 27.5018 3.66632C28.0571 4.22165 28.3343 4.88843 28.3333 5.66665V22.6666C28.3333 23.4458 28.0557 24.1131 27.5003 24.6684C26.945 25.2237 26.2782 25.5009 25.5 25.5H12.75ZM7.08334 31.1666C6.30417 31.1666 5.63692 30.889 5.08159 30.3336C4.52625 29.7783 4.24906 29.1115 4.25 28.3333V9.91665C4.25 9.51526 4.386 9.17857 4.658 8.90657C4.93 8.63457 5.26622 8.49904 5.66667 8.49998C6.06806 8.49998 6.40475 8.63598 6.67675 8.90798C6.94875 9.17998 7.08428 9.5162 7.08334 9.91665V28.3333H21.25C21.6514 28.3333 21.9881 28.4693 22.2601 28.7413C22.5321 29.0133 22.6676 29.3495 22.6667 29.75C22.6667 30.1514 22.5307 30.4881 22.2587 30.7601C21.9867 31.0321 21.6504 31.1676 21.25 31.1666H7.08334Z" fill="#FAFAFA"/>
+                  </svg>                  
+                    </a>
                   </div>
                   <ul class="shoppingList__detailsWrapper">
                     ${addArticle}
@@ -99,6 +119,20 @@
       document.querySelector(".shoppingList__wrapper").innerHTML =
         addList ||
         `<p class="favoriteShop__error">Vous n'avez pas de listes enregistrées !<p>`;
+    },
+
+    /**
+     * Copie d'une liste en fonction de son id
+     * @param {*} e
+     */
+    copyList: (e) => {
+      if (e.target.classList.contains("copy")) {
+        const list = App._lists[e.target.dataset.copy],
+          articles = list.articles.join(", ");
+        navigator.clipboard.writeText(
+          `La liste : ${list.title} est composée de ${articles}.`
+        );
+      }
     },
 
     /**
