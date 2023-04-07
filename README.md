@@ -5,8 +5,18 @@
 </picture>
 
 Réalisé par [@AkekoChan](https://github.com/AkekoChan) et moi, Cartcomm est une PWA permettant d'enregistrer ses listes de courses, optimisée grâce aux appels d'API.
-Vous vous trouvez sur un prototype de l'application [Cartcomm](https://cartcomm.netlify.app).
 
+`
+Vous vous trouvez sur un prototype de l'application [Cartcomm](https://cartcomm.netlify.app), voici quelques conseils d'utilisation :
+  
+`
+
+- Le clipboard ne fonctionnne pas sous Firefox
+- S'assurer d'autoriser les demandes de permissions sur ses appareils
+- Les Notifications ne fonctionnent pas sur téléphone
+- Faire attention au nombre de requête 
+- La map peut être longue à charger, soyez patients
+- la gestion des permissions peut présenter des erreurs et des bugs
 
 ## PWA de liste de courses en ligne
 
@@ -86,3 +96,11 @@ Dans CartComm, demander la permission à l'utilisateur est important pour collec
 ### Partager les listes
 
 Pour permettre aux utilisateurs de partager leurs listes avec d'autres personnes, nous avons mis en place une fonctionnalité de "copy to clipboard" dans CartComm. Cette fonctionnalité est très utile car elle permet aux utilisateurs de partager facilement leur liste de courses avec des amis ou des membres de leur famille sans avoir besoin d'un serveur web. Avec cette fonctionnalité, les utilisateurs peuvent simplement copier le contenu de leur liste de courses dans le presse-papiers et le coller dans un message ou un e-mail pour partager leurs achats. Cette fonctionnalité est très pratique et offre une alternative efficace à l'API de partage traditionnelle qui nécessite un serveur web. Avec cette fonctionnalité, les utilisateurs de CartComm peuvent partager facilement leurs listes de courses avec les personnes de leur choix.
+
+### Infos supplémentaires
+
+Etant un prototype, certaines fonctionnalités ne sont pas parfaites et d'autres n'ont pas été intégré. A la base, l'application était voué à être une application de partage de listes, nécessitant donc un back-office. Par souci de complexité, nous avons réduit Cartcomm à n'être qu'une simple application de liste offline. Dans la même veine, les notifications push que nous voulions appliquer nécessitent elles aussi un back office.
+
+**Difficultées rencontrées**
+
+Lors de la mise en ligne sur [netlify](https://netlify.com), nous avons du remanier notre arborescence car nous avons une application multipage. Le service worker demandant des chemins précis, il a entravé la mise en ligne, exigeant de repasser sur tout le code et modifier la config vite. Au niveau de la map, l'intégration fut complexe et laborieuse, tant bien au niveau du design qu'à la gestion des requêtes API. De plus, les requêtes sont limitées à 3000/jours l'application n'a pas pour vocation d'être massivement utilisée puisque cela saturerait l'application.
