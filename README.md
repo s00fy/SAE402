@@ -24,7 +24,7 @@ Cartcomm est une PWA pour mobile qui mermet d'afficher et enregistrer ses listes
 
 Le but est de digitaliser et s'assurer de l'accès libre des listes de courses des utilisateurs, peut importe la connexion disponible. Pour améliorer le confort, la géolocalisation affiche tous les magasins proches.
 
-**gestion des listes**
+**Gestion des listes**
 
 Vous pouvez créer des nouvelles listes, modifier et supprimer vos listes déjà existantes. Toutes les données proviennent d'objets JS convertis par la suite en JSON, le projet ayant pour but la prise en main des APIs, un baxk office n'était pas nécessaire.
 
@@ -34,7 +34,7 @@ En tant que PWA, un des points importants était que l'app soit facilement et ac
 
 **SCSS**
 
-Le design est très simple et épuré, seul le blanc et le vert sont utilisés. Un [wireframe](https://www.figma.com/file/bK3xDBTziUnyKMyrDUFd5N/CartComm?t=vogCAQ0SBwdCMlzM-1)a été réalisé en amont. L'interface a été réalisée avec scss pour avoir des fichiers modulables et réutilisables.
+Le design est très simple et épuré, seul le blanc et le vert sont utilisés. Un [wireframe](https://www.figma.com/file/bK3xDBTziUnyKMyrDUFd5N/CartComm?t=vogCAQ0SBwdCMlzM-1) a été réalisé en amont. L'interface a été réalisée avec scss pour avoir des fichiers modulables et réutilisables.
 
 
 ## Les APIs utilisées
