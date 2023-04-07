@@ -4,8 +4,6 @@
   <img alt="Logo of CartComm = a smiling cart insert into the word "cartcomm"." src="https://github.com/s00fy/SAE402/blob/dev/public/logo-white-pwa.svg">
 </picture>
 
-## A propos
-
 Réalisé par [@AkekoChan](https://github.com/AkekoChan) et moi, Cartcomm est une PWA permettant d'enregistrer ses listes de courses, optimisée grâce aux appels d'API.
 Vous vous trouvez sur un prototype de l'application [Cartcomm](https://cartcomm.netlify.app).
 
