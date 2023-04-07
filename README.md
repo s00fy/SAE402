@@ -30,7 +30,7 @@ Nous avons utilsé [6 APIs](https://whatwebcando.today) :
 
 | API           | Utilisation |
 | ------------- | ------------- |
-| Geolocation  | Afficher les magasins proches de soi |
+| Geolocation  | Afficher les magasins proche de soi |
 | Home Screen Installation  | Installer l'appli sur mobile, accès rapide |
 | Local Storage, Offline Mode | Permettre le mode hors-ligne |
 | Local Notifications | Notifier l'utilisateur à chaque action |
