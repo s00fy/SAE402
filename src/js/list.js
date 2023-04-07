@@ -122,6 +122,35 @@
     },
 
     /**
+     * Retourne une notification en fonction de la demande de l'utilisateur
+     * @param {*} title
+     * @returns
+     */
+    showNotification: (title) => {
+      // Vérifier si le navigateur prend en charge les notifications
+      if (!("Notification" in window)) {
+        console.error(
+          "Ce navigateur ne prend pas en charge les notifications."
+        );
+        return;
+      }
+
+      // Vérifier si l'utilisateur a autorisé les notifications
+      if (Notification.permission === "granted") {
+        // Créer la notification
+        let notification = new Notification(title);
+      } else if (Notification.permission !== "denied") {
+        // Demander la permission à l'utilisateur pour les notifications
+        Notification.requestPermission().then(function (permission) {
+          // Si l'utilisateur autorise les notifications, créer la notification
+          if (permission === "granted") {
+            let notification = new Notification(title);
+          }
+        });
+      }
+    },
+
+    /**
      * Copie d'une liste en fonction de son id
      * @param {*} e
      */
@@ -132,6 +161,9 @@
         navigator.clipboard.writeText(
           `La liste : ${list.title} est composée de ${articles}.`
         );
+
+        let title = "Votre liste a été ajoutée au presse-papier !";
+        App.showNotification(title);
       }
     },
 
@@ -143,6 +175,9 @@
       if (e.target.classList.contains("delete")) {
         App._lists.splice(e.target.id, 1);
         localStorage.setItem("list", JSON.stringify(App._lists));
+
+        let title = "Votre liste a été supprimée !";
+        App.showNotification(title);
 
         App.showList();
       }

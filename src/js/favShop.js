@@ -19,6 +19,35 @@
     },
 
     /**
+     * Retourne une notification en fonction de la demande de l'utilisateur
+     * @param {*} title
+     * @returns
+     */
+    showNotification: (title) => {
+      // Vérifier si le navigateur prend en charge les notifications
+      if (!("Notification" in window)) {
+        console.error(
+          "Ce navigateur ne prend pas en charge les notifications."
+        );
+        return;
+      }
+
+      // Vérifier si l'utilisateur a autorisé les notifications
+      if (Notification.permission === "granted") {
+        // Créer la notification
+        let notification = new Notification(title);
+      } else if (Notification.permission !== "denied") {
+        // Demander la permission à l'utilisateur pour les notifications
+        Notification.requestPermission().then(function (permission) {
+          // Si l'utilisateur autorise les notifications, créer la notification
+          if (permission === "granted") {
+            let notification = new Notification(title);
+          }
+        });
+      }
+    },
+
+    /**
      * Affiche les magasins favoris
      */
     showFavShop: () => {
@@ -60,7 +89,11 @@
         const id = e.target.id;
         delete App._shops[id];
         localStorage.setItem("favShops", JSON.stringify(App._shops));
+
         App.showFavShop();
+
+        let title = "Magasin supprimé !";
+        App.showNotification(title);
       }
     },
   };
