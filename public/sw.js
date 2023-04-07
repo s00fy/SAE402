@@ -20,7 +20,7 @@ const assets = [
   "/pages/edit/edit.html",
   "/pages/storage/new.html",
   "/pages/parameters/parameters.html",
-  "/pages/favShop/favoriteShop.html",
+  "/pages/favShop/favShop.html",
   "/pages/fallback/fallback.html",
   "/pages/shop/shop.html",
 ];

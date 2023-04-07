@@ -9,7 +9,7 @@ export default defineConfig({
         main: resolve(__dirname, "index.html"),
         newList: resolve(__dirname, "./pages/storage/new.html"),
         editList: resolve(__dirname, "./pages/edit/edit.html"),
-        favShop: resolve(__dirname, "./pages/favShop/favoriteShop.html"),
+        favShop: resolve(__dirname, "./pages/favShop/favShop.html"),
         parameters: resolve(__dirname, "./pages/parameters/parameters.html"),
         shop: resolve(__dirname, "./pages/shop/shop.html"),
         fallback: resolve(__dirname, "./pages/fallback/fallback.html"),
