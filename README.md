@@ -17,7 +17,6 @@ Nous avons utilsé [5 APIs](https://whatwebcando.today) :
 | ------------- | ------------- |
 | Geolocation  | Afficher les magasins proches de soi |
 | Home Screen Installation  | Installer l'appli sur mobile, accès rapide |
-| Offline Storage  | Permettre le mode hors-ligne |
-| Offline Mode| Rendre l'appli fonctionnnel en hors-ligne |
+| Offline Storage, Offline Mode | Permettre le mode hors-ligne |
 | Local Notifications | Notifier l'utilisateur à chaque action |
 | Permissions | Autoriser la géolocalisation et les notifications |
