@@ -7,18 +7,6 @@
 Réalisé par [@AkekoChan](https://github.com/AkekoChan) et moi, Cartcomm est une PWA permettant d'enregistrer ses listes de courses, optimisée grâce aux appels d'API.
 Vous vous trouvez sur un prototype de l'application [Cartcomm](https://cartcomm.netlify.app).
 
-## Les APIs utilisées
-
-Nous avons utilsé [6 APIs](https://whatwebcando.today) : 
-
-| API           | Utilisation |
-| ------------- | ------------- |
-| Geolocation  | Afficher les magasins proches de soi |
-| Home Screen Installation  | Installer l'appli sur mobile, accès rapide |
-| Local Storage, Offline Mode | Permettre le mode hors-ligne |
-| Local Notifications | Notifier l'utilisateur à chaque action |
-| Permissions | Autoriser la géolocalisation et les notifications |
-| Clipboard | Autoriser le presse papier et le copier coller |
 
 ## PWA de liste de courses en ligne
 
@@ -35,6 +23,19 @@ Cartcomm est une PWA pour mobile qui mermet d'afficher et enregistrer ses listes
 6. `parameters.html` page qui gère les autorisations et les préférences de l'utilisateur
 
 Le but est de digitaliser et s'assurer de l'accès libre des listes de courses des utilisateurs, peut importe la connexion disponible. Pour améliorer le confort, la géolocalisation affiche tous les magasins proches. 
+
+## Les APIs utilisées
+
+Nous avons utilsé [6 APIs](https://whatwebcando.today) : 
+
+| API           | Utilisation |
+| ------------- | ------------- |
+| Geolocation  | Afficher les magasins proches de soi |
+| Home Screen Installation  | Installer l'appli sur mobile, accès rapide |
+| Local Storage, Offline Mode | Permettre le mode hors-ligne |
+| Local Notifications | Notifier l'utilisateur à chaque action |
+| Permissions | Autoriser la géolocalisation et les notifications |
+| Clipboard | Autoriser le presse papier et le copier coller |
 
 ### Geolocalisation et Geoapify
 
